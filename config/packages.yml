@@ -23,7 +23,8 @@ custom-flatpaks:
   - Minecraft: com.mojang.Minecraft
   - OBS: com.obsproject.Studio
   - KiCad: org.kicad.KiCad
-  - PrusaSlicer: com.prusa3d.PrusaSlicer 
+  - PrusaSlicer: com.prusa3d.PrusaSlicer
+  - GearLever: it.mijorus.gearlever
 
 type: bling # configure what to pull in from ublue-os/bling
 install:
