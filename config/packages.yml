@@ -51,7 +51,7 @@ install:
   - zsh
   - python3-pip
   - python3-wheel
-  # - code
+  - code
   - starship
 remove:
   - firefox # default firefox removed in favor of flatpak
