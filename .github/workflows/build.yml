@@ -39,8 +39,9 @@ jobs:
         # Add recipes for all the images you want to build here.
         # Don't add module configuration files, you will get errors.
         recipe:
-          - recipe.yml
+          - main.yml
           - nvidia.yml
+          - framework.yml
 # !!!
 
     steps:
