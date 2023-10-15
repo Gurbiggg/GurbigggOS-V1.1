@@ -1,62 +1,64 @@
-type: bling # configure what to pull in from ublue-os/bling
-install:
-  - fonts # selection of common good free fonts
-  - justfiles # add "!include /usr/share/ublue-os/just/bling.just"
-              # in your custom.just (added by default) or local justfile
-  - nix-installer # shell shortcuts for determinate system's nix installers
-  - ublue-os-wallpapers
-  - ublue-update # https://github.com/ublue-os/ublue-update
-  - dconf-update-service # a service unit that updates the dconf db on boot
-  # - devpod # https://devpod.sh/ as an rpm
-  
-type: rpm-ostree
-repos:
-  - https://copr.fedorainfracloud.org/coprs/atim/starship/repo/fedora-%OS_VERSION%/atim-starship-fedora-%OS_VERSION%.repo
-  - https://packages.microsoft.com/yumrepos/vscode
-install:
-  - micro
-  # - neovim
-  - gnome-tweaks
-  - gparted
-  - distrobox
-  - micro
-  - zsh
-  - python3-pip
-  - python3-wheel
-  - code
-  - starship
-  - tlp
-remove:
-  - firefox # default firefox removed in favor of flatpak
-  - firefox-langpacks # langpacks needs to also be removed to prevent dependency problems
-  - gnome-tour
-  - yelp
+modules:
+  - type: bling # configure what to pull in from ublue-os/bling
+    install:
+      - fonts # selection of common good free fonts
+      - justfiles # add "!include /usr/share/ublue-os/just/bling.just"
+                  # in your custom.just (added by default) or local justfile
+      - nix-installer # shell shortcuts for determinate system's nix installers
+      - ublue-os-wallpapers
+      - ublue-update # https://github.com/ublue-os/ublue-update
+      - dconf-update-service # a service unit that updates the dconf db on boot
+      # - devpod # https://devpod.sh/ as an rpm
 
-type: yafti
-custom-flatpaks:
-  - Boxes: org.gnome.Boxes
-  - Bottles: com.usebottles.bottles
-  - Godot: org.godotengine.Godot
-  - Inkscape: org.inkscape.Inkscape
-  # - Joplin: net.cozic.joplin_desktop
-  - Krita: org.kde.krita
-  - Musescore: org.musescore.MuseScore
-  - Obsidian: md.obsidian.Obsidian
-  # - Retroarch: org.libretro.RetroArch
-  # - Slack: com.slack.Slack
-  - Steam: com.valvesoftware.Steam
-  # - TLPUI: com.github.d4nj1.tlpui
-  - Cura: com.ultimaker.cura
-  - Discord: com.discordapp.Discord
-  - ExtensionManager: com.mattjakeman.ExtensionManager
-  - VLC: org.videolan.VLC
-  - BlackBox: com.raggesilver.BlackBox
-  - GBStudio: dev.gbstudio.gb-studio
-  - ArduinoIDE2: cc.arduino.IDE2
-  - Minecraft: com.mojang.Minecraft
-  - OBS: com.obsproject.Studio
-  - KiCad: org.kicad.KiCad
-  - PrusaSlicer: com.prusa3d.PrusaSlicer
-  - GearLever: it.mijorus.gearlever
-
-
+  - type: rpm-ostree
+    repos:
+      - https://copr.fedorainfracloud.org/coprs/atim/starship/repo/fedora-%OS_VERSION%/atim-starship-fedora-%OS_VERSION%.repo
+      - https://packages.microsoft.com/yumrepos/vscode
+    install:
+      - micro
+      # - neovim
+      - gnome-tweaks
+      - gparted
+      - distrobox
+      - micro
+      - zsh
+      - python3-pip
+      - python3-wheel
+      - code
+      - starship
+      - tlp
+    remove:
+      - firefox # default firefox removed in favor of flatpak
+      - firefox-langpacks # langpacks needs to also be removed to prevent dependency problems
+      - gnome-tour
+      - yelp
+    
+  - type: yafti
+    custom-flatpaks:
+      - Boxes: org.gnome.Boxes
+      - Bottles: com.usebottles.bottles
+      - Godot: org.godotengine.Godot
+      - Inkscape: org.inkscape.Inkscape
+      # - Joplin: net.cozic.joplin_desktop
+      - Krita: org.kde.krita
+      - Musescore: org.musescore.MuseScore
+      - Obsidian: md.obsidian.Obsidian
+      # - Retroarch: org.libretro.RetroArch
+      # - Slack: com.slack.Slack
+      - Steam: com.valvesoftware.Steam
+      # - TLPUI: com.github.d4nj1.tlpui
+      - Cura: com.ultimaker.cura
+      - Discord: com.discordapp.Discord
+      - ExtensionManager: com.mattjakeman.ExtensionManager
+      - VLC: org.videolan.VLC
+      - BlackBox: com.raggesilver.BlackBox
+      - GBStudio: dev.gbstudio.gb-studio
+      - ArduinoIDE2: cc.arduino.IDE2
+      - Minecraft: com.mojang.Minecraft
+      - OBS: com.obsproject.Studio
+      - KiCad: org.kicad.KiCad
+      - PrusaSlicer: com.prusa3d.PrusaSlicer
+      - GearLever: it.mijorus.gearlever
+    
+    
+    
