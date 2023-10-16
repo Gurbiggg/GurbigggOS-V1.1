@@ -44,6 +44,8 @@ jobs:
           - framework.yml
 
           - main-latest.yml
+          - nvidia-latest.yml
+          - framework-latest.yml
 # !!!
 
     steps:
