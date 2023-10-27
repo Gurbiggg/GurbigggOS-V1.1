@@ -41,8 +41,8 @@ COPY modules /tmp/modules/
 # Copy akmods from the ublue kmods 
 COPY --from=ghcr.io/ublue-os/akmods:main-38 /rpms/ /tmp/rpms
 RUN find /tmp/rpms
-# RUN rpm-ostree install /tmp/rpms/ublue-os/ublue-os-akmods*.rpm
-RUN rpm-ostree install /tmp/rpms/kmods/kmod-v4l2loopback*.rpm
+RUN rpm-ostree install /tmp/rpms/ublue-os/ublue-os-akmods*.rpm
+# RUN rpm-ostree install /tmp/rpms/kmods/kmod-v4l2loopback*.rpm
 
 # `yq` is used for parsing the yaml configuration
 # It is copied from the official container image since it's not available as an RPM.
