@@ -39,6 +39,8 @@ COPY --from=ghcr.io/ublue-os/bling:latest /modules /tmp/modules/
 COPY modules /tmp/modules/
 
 # Copy akmods from the ublue kmods 
+ADD https://copr.fedorainfracloud.org/coprs/ublue-os/akmods/repo/fedora-38/ublue-os-akmods-fedora-38.repo \
+    /tmp/ublue-os-akmods-addons/rpmbuild/SOURCES/_copr_ublue-os-akmods.repo
 COPY --from=ghcr.io/ublue-os/akmods:main-38 /rpms/ /tmp/rpms
 RUN find /tmp/rpms
 
