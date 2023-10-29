@@ -13,3 +13,5 @@ rpm-ostree install \
 akmods --force --kernels "${KERNEL}" --kmod gcadapter_oc
 modinfo /usr/lib/modules/${KERNEL}/extra/gcadapter_oc/gcadapter_oc.ko.xz > /dev/null \
 || (find /var/cache/akmods/gcadapter_oc/ -name \*.log -print -exec cat {} \; && exit 1)
+
+rm -f /etc/yum.repos.d/_copr_ublue-os-akmods.repo
