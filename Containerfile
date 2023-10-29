@@ -41,8 +41,7 @@ COPY modules /tmp/modules/
 # Copy akmods from the ublue kmods 
 COPY --from=ghcr.io/ublue-os/akmods:main-38 /rpms/ /tmp/rpms
 RUN find /tmp/rpms
-COPY /kmods.sh /tmp/kmods.sh
-RUN chmod +x /tmp/kmods.sh && /tmp/kmods.sh
+
 # RUN rpm-ostree install /tmp/rpms/ublue-os/ublue-os-akmods*.rpm
 RUN rpm-ostree install /tmp/rpms/kmods/kmod-gcadapter*.rpm
 
