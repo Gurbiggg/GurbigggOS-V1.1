@@ -38,6 +38,9 @@ COPY --from=ghcr.io/ublue-os/bling:latest /modules /tmp/modules/
 # Custom modules overwrite defaults
 COPY modules /tmp/modules/
 
+COPY --from=ghcr.io/ublue-os/akmods:TAG /rpms/ /tmp/rpms
+RUN find /tmp/rpms
+# RUN rpm-ostree install /tmp/rpms/kmods/kmod-gcadapter
 # `yq` is used for parsing the yaml configuration
 # It is copied from the official container image since it's not available as an RPM.
 COPY --from=docker.io/mikefarah/yq /usr/bin/yq /usr/bin/yq
