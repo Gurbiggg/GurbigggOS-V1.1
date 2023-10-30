@@ -38,15 +38,6 @@ COPY --from=ghcr.io/ublue-os/bling:latest /modules /tmp/modules/
 # Custom modules overwrite defaults
 COPY modules /tmp/modules/
 
-# Copy akmods from the ublue kmods 
-ADD https://copr.fedorainfracloud.org/coprs/ublue-os/akmods/repo/fedora-38/ublue-os-akmods-fedora-38.repo \
-    /tmp/ublue-os-akmods-addons/rpmbuild/SOURCES/_copr_ublue-os-akmods.repo
-COPY --from=ghcr.io/ublue-os/akmods:main-38 /rpms/ /tmp/rpms
-RUN find /tmp/rpms
-
-# RUN rpm-ostree install /tmp/rpms/ublue-os/ublue-os-akmods*.rpm
-RUN rpm-ostree install /tmp/rpms/kmods/kmod-gcadapter*.rpm
-
 # `yq` is used for parsing the yaml configuration
 # It is copied from the official container image since it's not available as an RPM.
 COPY --from=docker.io/mikefarah/yq /usr/bin/yq /usr/bin/yq
