@@ -45,7 +45,7 @@ COPY --from=docker.io/mikefarah/yq /usr/bin/yq /usr/bin/yq
 # Run the build script, then clean up temp files and finalize container build.
 RUN chmod +x /tmp/build.sh && /tmp/build.sh
 
-COPY --from=ghcr.io/ublue-os/akmods:main-39 /rpms/ /tmp/rpms
+COPY --from=ghcr.io/ublue-os/akmods:main-38 /rpms/ /tmp/rpms
 RUN find /tmp/rpms
 RUN rpm-ostree install /tmp/rpms/kmods/kmod-gcadapter_oc*.rpm
 # RUN rpm-ostree install /tmp/rpms/ublue-os/ublue-os-akmods*.rpm
