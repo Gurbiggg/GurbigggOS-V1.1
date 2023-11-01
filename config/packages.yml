@@ -12,9 +12,9 @@ modules:
 
   - type: rpm-ostree
     repos:
-      - https://packages.microsoft.com/yumrepos/vscode
+      - https://packages.microsoft.com/yumrepos/vscode.repo
       - https://copr.fedorainfracloud.org/coprs/atim/starship/repo/fedora-%OS_VERSION%/atim-starship-fedora-%OS_VERSION%.repo
-      - https://copr.fedorainfracloud.org/coprs/ublue-os/akmods/
+      - https://copr.fedorainfracloud.org/coprs/ublue-os/akmods.repo
     install:
       - gcadapter_oc
       - gcadapter_oc-kmod
