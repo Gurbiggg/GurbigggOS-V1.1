@@ -41,7 +41,7 @@ jobs:
         recipe:
           - main.yml
           - nvidia.yml
-          - framework.yml
+          # - framework.yml
 # !!!
 
     steps:
