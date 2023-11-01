@@ -10,7 +10,7 @@
 
 # !! Warning: changing these might not do anything for you. Read comment above.
 ARG IMAGE_MAJOR_VERSION=38
-ARG BASE_IMAGE_URL=ghcr.io/ublue-os/silverblue-nokmods
+ARG BASE_IMAGE_URL=ghcr.io/ublue-os/silverblue-main
 
 FROM ${BASE_IMAGE_URL}:${IMAGE_MAJOR_VERSION}
 
@@ -43,11 +43,11 @@ COPY modules /tmp/modules/
 COPY --from=docker.io/mikefarah/yq /usr/bin/yq /usr/bin/yq
 
 # Run the build script, then clean up temp files and finalize container build.
-RUN chmod +x /tmp/build.sh && /tmp/build.sh 
+RUN chmod +x /tmp/build.sh && /tmp/build.sh
 
-COPY --from=ghcr.io/ublue-os/akmods:main-38 /rpms/ /tmp/rpms
+COPY --from=ghcr.io/ublue-os/akmods:main-39 /rpms/ /tmp/rpms
 RUN find /tmp/rpms
-RUN rpm-ostree install /tmp/rpms/kmods/*gcadapter_oc-*.rpm
+RUN rpm-ostree install /tmp/rpms/kmods/kmod-gcadapter_oc*.rpm
 # RUN rpm-ostree install /tmp/rpms/ublue-os/ublue-os-akmods*.rpm
 # RUN rpm-ostree install /tmp/rpms/kmods/kmod-v4l2loopback*.rpm
 
