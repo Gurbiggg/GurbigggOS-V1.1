@@ -21,7 +21,7 @@ on: # https://docs.github.com/en/actions/using-workflows/events-that-trigger-wor
 env:
   IMAGE_REGISTRY: ghcr.io/${{ github.repository_owner }}
 
-# Only deploys the branch named "main". Ignores all other branches, to allow
+# Only deploys the branch named "live". Ignores all other branches, to allow
 # having "development" branches without interfering with GHCR image uploads.
 jobs:
   push-ghcr:
@@ -41,7 +41,7 @@ jobs:
         recipe:
           - main.yml
           - nvidia.yml
-          # - framework.yml
+          - framework.yml
 # !!!
 
     steps:
@@ -93,7 +93,7 @@ jobs:
           # --
 
           BUILD_TAGS+=("${TIMESTAMP}")
-          BUILD_TAGS+=("latest")
+          BUILD_TAGS+=("unstable" "39")
 
           if [[ "${{ github.event_name }}" == "pull_request" ]]; then
               echo "Generated the following commit tags: "
