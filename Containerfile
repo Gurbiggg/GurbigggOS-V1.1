@@ -45,13 +45,10 @@ COPY --from=docker.io/mikefarah/yq /usr/bin/yq /usr/bin/yq
 # Run the build script, then clean up temp files and finalize container build.
 RUN chmod +x /tmp/build.sh && /tmp/build.sh
 
-ADD https://copr.fedorainfracloud.org/coprs/ublue-os/akmods/repo/fedora-${IMAGE_MAJOR_VERSION}/ublue-os-akmods-fedora-${FEDORA_MAJOR_VERSION}.repo \
-    /tmp/ublue-os-akmods-addons/rpmbuild/SOURCES/_copr_ublue-os-akmods.repo
-RUN /tmp/build-ublue-os-akmods-addons.sh
 COPY --from=ghcr.io/ublue-os/akmods:main-38 /rpms/ /tmp/rpms
 RUN find /tmp/rpms
+RUN rpm-ostree install /tmp/rpms/ublue-os/ublue-os-akmods*.rpm
+RUN rpm-ostree install /tmp/rpms/kmods/kmod-v4l2loopback*.rpm
 RUN rpm-ostree install /tmp/rpms/kmods/kmod-gcadapter_oc*.rpm
-# RUN rpm-ostree install /tmp/rpms/ublue-os/ublue-os-akmods*.rpm
-# RUN rpm-ostree install /tmp/rpms/kmods/kmod-v4l2loopback*.rpm
 
 RUN rm -rf /tmp/* /var/* && ostree container commit
