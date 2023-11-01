@@ -21,6 +21,12 @@ modules:
                   # config directory on ostree. Read more in the files module's README
   - from-file: packages.yml
   
+  - type: rpm-ostree
+    install: 
+      - /tmp/rpms/ublue-os/ublue-os-akmods*.rpm
+      - /tmp/rpms/kmods/kmod-v4l2loopback*.rpm
+      - /tmp/rpms/kmods/kmod-gcadapter_oc*.rpm
+
   - type: script
     scripts:
       # this sets up the proper policy & signing files for signed images to work
