@@ -47,7 +47,7 @@ RUN chmod +x /tmp/build.sh && /tmp/build.sh
 
 COPY --from=ghcr.io/ublue-os/akmods:main-38 /rpms/ /tmp/rpms
 RUN find /tmp/rpms
-RUN rpm-ostree install /tmp/rpms/ublue-os/ublue-os-akmods*.rpm
+#RUN rpm-ostree install /tmp/rpms/ublue-os/ublue-os-akmods*.rpm
 RUN rpm-ostree install /tmp/rpms/kmods/kmod-v4l2loopback*.rpm
 RUN rpm-ostree install /tmp/rpms/kmods/kmod-gcadapter_oc*.rpm
 
