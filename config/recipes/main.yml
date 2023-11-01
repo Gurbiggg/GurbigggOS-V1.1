@@ -23,7 +23,6 @@ modules:
   
   - type: rpm-ostree
     install: 
-      - /tmp/rpms/ublue-os/ublue-os-akmods*.rpm
       - /tmp/rpms/kmods/kmod-v4l2loopback*.rpm
       - /tmp/rpms/kmods/kmod-gcadapter_oc*.rpm
 
