@@ -23,9 +23,9 @@ modules:
 
   - type: rpm-ostree
     install:
-      - /tmp/rpms/nvidia/kmods/kmod-nvidia.rpm
-      - /tmp/rpms/nvidia/kmods/kmod-v4l2loopback*.rpm
-      - /tmp/rpms/nvidia/kmods/kmod-gcadapter_oc*.rpm
+      - /tmp/rpms/kmods/kmod-nvidia.rpm
+      - /tmp/rpms/kmods/kmod-v4l2loopback*.rpm
+      - /tmp/rpms/kmods/kmod-gcadapter_oc*.rpm
   
   - type: script
     scripts:
