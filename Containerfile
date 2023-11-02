@@ -29,6 +29,7 @@ COPY --from=ghcr.io/ublue-os/bling:latest /rpms /tmp/bling/rpms
 COPY --from=ghcr.io/ublue-os/bling:latest /files /tmp/bling/files
 
 COPY --from=ghcr.io/ublue-os/akmods:main-38 /rpms/ /tmp/rpms
+COPY --from=ghcr.io/ublue-os/akmods:main-38-535 /rpms/ /tmp/rpms/nvidia
 RUN find /tmp/rpms
 # Copy build scripts & configuration
 COPY build.sh /tmp/build.sh
