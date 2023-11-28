@@ -20,11 +20,6 @@ modules:
                   # should be added into /usr/etc/ as that is the proper "distro"
                   # config directory on ostree. Read more in the files module's README
   - from-file: packages.yml
-  
-  - type: rpm-ostree
-    install: 
-      - /tmp/rpms/kmods/kmod-v4l2loopback*.rpm
-      - /tmp/rpms/kmods/kmod-gcadapter_oc*.rpm
 
   - type: script
     scripts:
