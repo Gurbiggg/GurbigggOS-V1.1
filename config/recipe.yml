@@ -32,7 +32,6 @@ modules:
       - code
       - gparted
       - gnome-tweaks
-      - /tmp/rpms/kmods/kmod-gcadapter_oc*.rpm
 
       # Extensions
       - gnome-shell-extension-blur-my-shell
