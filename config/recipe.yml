@@ -25,6 +25,7 @@ modules:
       - https://packages.microsoft.com/yumrepos/vscode/config.repo
       - https://copr.fedorainfracloud.org/coprs/atim/starship/repo/fedora-%OS_VERSION%/atim-starship-fedora-%OS_VERSION%.repo
     install:
+      - ansible
       - starship
       - vim
       - distrobox
@@ -64,8 +65,11 @@ modules:
     custom-flatpaks: # this section is optional
       # - Celluloid: io.github.celluloid_player.Celluloid
       # - Krita: org.kde.krita
+      - BlackBox: com.raggesilver.BlackBox
       - Boxes: org.gnome.Boxes
       - Bottles: org.bottles
+      - Godot: org.godotengine.Godot
+      - Inkscape: org.inkscape.Inkscape
 
   - type: script
     scripts:
