@@ -1,7 +1,7 @@
 # This workflow builds every branch of the repository daily at 16:30 UTC, one hour after ublue-os/nvidia builds.
 # The images are also built after pushing changes or pull requests.
 # The builds can also be triggered manually in the Actions tab thanks to workflow dispatch.
-# Only the branch called `live` is published.
+# Only the branch called `main` is published.
 
 
 name: build-ublue
@@ -21,7 +21,7 @@ on: # https://docs.github.com/en/actions/using-workflows/events-that-trigger-wor
 env:
   IMAGE_REGISTRY: ghcr.io/${{ github.repository_owner }}
 
-# Only deploys the branch named "live". Ignores all other branches, to allow
+# Only deploys the branch named "main". Ignores all other branches, to allow
 # having "development" branches without interfering with GHCR image uploads.
 jobs:
   push-ghcr:
@@ -56,10 +56,10 @@ jobs:
 
       # Confirm that cosign.pub matches SIGNING_SECRET
       - uses: sigstore/cosign-installer@v3.3.0
-        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/live'
+        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
 
       - name: Check SIGNING_SECRET matches cosign.pub
-        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/live'
+        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
         env:
           COSIGN_EXPERIMENTAL: false
           COSIGN_PASSWORD: ""
@@ -180,7 +180,7 @@ jobs:
       - name: Push To GHCR
         uses: redhat-actions/push-to-registry@v2
         id: push
-        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/live'
+        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
         env:
           REGISTRY_USER: ${{ github.actor }}
           REGISTRY_PASSWORD: ${{ github.token }}
@@ -195,7 +195,7 @@ jobs:
 
       - name: Login to GitHub Container Registry
         uses: docker/login-action@v3
-        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/live'
+        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
@@ -203,7 +203,7 @@ jobs:
 
       # Sign container
       - name: Sign container image
-        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/live'
+        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
         run: |
           cosign sign -y --key env://COSIGN_PRIVATE_KEY ${{ steps.registry_case.outputs.lowercase }}/${{ steps.image_case.outputs.lowercase }}@${TAGS}
         env:
@@ -212,6 +212,6 @@ jobs:
           COSIGN_PRIVATE_KEY: ${{ secrets.SIGNING_SECRET }}
 
       - name: Echo outputs
-        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/live'
+        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
         run: |
           echo "${{ toJSON(steps.push.outputs) }}"
