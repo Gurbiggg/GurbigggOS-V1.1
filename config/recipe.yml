@@ -37,7 +37,6 @@ modules:
       - gnome-shell-extension-blur-my-shell
       - gnome-shell-extension-caffeine
       - gnome-shell-extension-drive-menu
-      - gnome-shell-extension-pop-shell 
       - gnome-shell-extension-forge
 
     remove:
