@@ -4,5 +4,10 @@
   - name: Install Flatpaks
     community.general.flatpak:
       name:
-        - org.gnu.emacs
         - com.discordapp.Discord
+  
+  - name: Remove Flatpaks
+    community.general.flatpak:
+      name:
+        - org.gnu.emacs
+      state: absent
