@@ -32,6 +32,7 @@ modules:
       - code
       - gparted
       - gnome-tweaks
+      - python3
 
       # Extensions
       - gnome-shell-extension-blur-my-shell
