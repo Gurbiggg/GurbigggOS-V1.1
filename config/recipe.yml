@@ -35,10 +35,10 @@ modules:
       - python3
 
       # Extensions
-      - gnome-shell-extension-blur-my-shell
-      - gnome-shell-extension-caffeine
-      - gnome-shell-extension-drive-menu
-      - gnome-shell-extension-forge
+#      - gnome-shell-extension-blur-my-shell
+#      - gnome-shell-extension-caffeine
+#      - gnome-shell-extension-drive-menu
+#      - gnome-shell-extension-forge
 
     remove:
       - firefox # default firefox removed in favor of flatpak
