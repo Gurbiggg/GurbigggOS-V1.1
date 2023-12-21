@@ -1,3 +1,0 @@
-hosts: localhost
-- name: Rebuild System Configuration
-  import_playbook: flatpak.yml
