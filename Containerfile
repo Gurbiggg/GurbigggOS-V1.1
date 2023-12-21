@@ -11,6 +11,7 @@
 # !! Warning: changing these might not do anything for you. Read comment above.
 ARG IMAGE_MAJOR_VERSION=39
 ARG BASE_IMAGE_URL=ghcr.io/ublue-os/silverblue-main
+ARG KERNEL_VERSION=main-39
 
 FROM ${BASE_IMAGE_URL}:${IMAGE_MAJOR_VERSION}
 
@@ -23,13 +24,11 @@ ARG IMAGE_REGISTRY=ghcr.io/ublue-os
 
 COPY cosign.pub /usr/share/ublue-os/cosign.pub
 
-COPY --from=ghcr.io/ublue-os/akmods:main-39 /rpms /tmp/rpms
+COPY --from=ghcr.io/ublue-os/akmods:${KERNEL_VERSION} /rpms /tmp/rpms
 RUN find /tmp/rpms
 # RUN rpm-ostree install /tmp/rpms/ublue-os/ublue-os-akmods*.rpm
 RUN rpm-ostree install /tmp/rpms/kmods/kmod-v4l2loopback*.rpm
 RUN rpm-ostree install /tmp/rpms/kmods/kmod-gcadapter_oc*.rpm
-
-
 
 # Copy the bling from ublue-os/bling into tmp, to be installed later by the bling module
 # Feel free to remove these lines if you want to speed up image builds and don't want any bling

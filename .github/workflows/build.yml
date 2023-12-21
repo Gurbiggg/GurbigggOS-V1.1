@@ -85,7 +85,8 @@ jobs:
           echo "IMAGE_DESCRIPTION=$(yq '.description' ./config/${{ matrix.recipe }})" >> $GITHUB_ENV
           echo "IMAGE_MAJOR_VERSION=$(yq '.image-version' ./config/${{ matrix.recipe }})" >> $GITHUB_ENV
           echo "BASE_IMAGE_URL=$(yq '.base-image' ./config/${{ matrix.recipe }})" >> $GITHUB_ENV
-
+          echo "KERNEL_VERSION=$(yq '.kernel' ./config/${{ matrix.recipe }})" >> $GITHUB_ENV
+          
       - name: Get current version
         id: labels
         run: |
@@ -172,6 +173,7 @@ jobs:
             IMAGE_MAJOR_VERSION=${{ env.IMAGE_MAJOR_VERSION }}
             BASE_IMAGE_URL=${{ env.BASE_IMAGE_URL }}
             RECIPE=${{ matrix.recipe }}
+            KERNEL_VERSION=${{ env.KERNEL_VERSION }}
             IMAGE_REGISTRY=${{ steps.registry_case.outputs.lowercase }}
           labels: ${{ steps.meta.outputs.labels }}
           oci: false
