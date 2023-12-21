@@ -1,5 +1,0 @@
-name: Install Flatpaks
-  community.general.flatpak:
-    name:
-      - org.gnu.emacs
-      - com.discordapp.Discord

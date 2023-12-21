@@ -1,0 +1,8 @@
+- name: Install Flatpaks
+  hosts: localhost
+  tasks:
+  - name: Install Flatpaks
+    community.general.flatpak:
+      name:
+        - org.gnu.emacs
+        - com.discordapp.Discord
