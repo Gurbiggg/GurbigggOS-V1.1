@@ -6,7 +6,7 @@ description: The base image of GurbigggOS. Make your own! https://ublue.it/makin
 # the base image to build on top of (FROM) and the version tag to use
 base-image: ghcr.io/ublue-os/silverblue-nvidia
 image-version: 39 # latest is also supported if you want new updates ASAP
-kernel: main-39-545
+kernel: main-39
 # module configuration, executed in order
 # you can include multiple instances of the same module
 modules:
