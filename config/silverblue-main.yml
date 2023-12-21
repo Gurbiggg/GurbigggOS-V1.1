@@ -19,7 +19,7 @@ modules:
                   # configuration you wish to end up in /etc/ on the booted system
                   # should be added into /usr/etc/ as that is the proper "distro"
                   # config directory on ostree. Read more in the files module's README
-      - bling: /modules/bling.yml
-      - rpm: /modules/rpms.yml
-      - flatpak: /modules/flatpak.yml
-      - common-scripts: /modules/common-scripts.yml
+  - from-file: /modules/bling.yml
+  - from-file: /modules/rpms.yml
+  - from-file: /modules/flatpak.yml
+  - from-file: /modules/common-scripts.yml
