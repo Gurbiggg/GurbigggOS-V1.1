@@ -23,3 +23,4 @@ modules:
   - from-file: /modules/rpms.yml
   - from-file: /modules/flatpak.yml
   - from-file: /modules/common-scripts.yml
+  - from-file: /modules/gnome.yml

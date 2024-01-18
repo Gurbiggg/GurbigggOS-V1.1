@@ -7,16 +7,10 @@ modules:
       - ansible
       - code
       - distrobox
-      - gnome-tweaks
       - gparted
       - python3
       - starship
       - vim
-
-      # Extensions
-      - gnome-shell-extension-blur-my-shell
-      - gnome-shell-extension-caffeine
-      - gnome-shell-extension-drive-menu
 
     remove:
       - firefox # default firefox removed in favor of flatpak

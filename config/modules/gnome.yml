@@ -1,0 +1,9 @@
+modules:
+  - type: rpm-ostree
+    install:
+      - gnome-tweaks
+
+      # Extensions
+      - gnome-shell-extension-blur-my-shell
+      - gnome-shell-extension-caffeine
+      - gnome-shell-extension-drive-menu

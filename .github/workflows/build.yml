@@ -41,7 +41,7 @@ jobs:
         recipe:
           - silverblue-main.yml
           - silverblue-nvidia.yml
-          - silverblue-hyprland.yml
+          - hyprland-main.yml
 # !!!
 
     steps:
