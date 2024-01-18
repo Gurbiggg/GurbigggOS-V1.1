@@ -23,6 +23,8 @@ modules:
     install: 
       - hyprland
       - hyprland-devel
+      - sddm
+      - alacritty
   - from-file: /modules/bling.yml
   - from-file: /modules/rpms.yml
   - from-file: /modules/flatpak.yml
