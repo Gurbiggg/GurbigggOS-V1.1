@@ -1,3 +1,7 @@
+# GurbigggOS Version 1.1
+
+This was rewritten on the new release of universal-blue Startingpoint 1.0 as an update to my old images and a way to refresh the project, as of now I'm not actively maintaining the project and I don't forsee myself coming back to it for the time being. I'm leaving the instructional stuff from Startingpoint here just for reference, feel free to go check out their projects as they're very interesting and the work they're doing is incredible. 
+
 # Starting point
 
 > **Warning**
@@ -46,7 +50,8 @@ To rebase an existing Silverblue/Kinoite installation to the latest build:
 
 - First rebase to the unsigned image, to get the proper signing keys and policies installed:
   ```
-  rpm-ostree rebase ostree-unverified-registry:ghcr.io/ublue-os/startingpoint:latest
+  # Images are done in a FLAVOR-KERNEL manner, ex. silverblue-main, kinoite-nvidia, etc. 
+  rpm-ostree rebase ostree-unverified-registry:ghcr.io/gurbiggg/silverblue-main:latest
   ```
 - Reboot to complete the rebase:
   ```
@@ -54,7 +59,7 @@ To rebase an existing Silverblue/Kinoite installation to the latest build:
   ```
 - Then rebase to the signed image, like so:
   ```
-  rpm-ostree rebase ostree-image-signed:docker://ghcr.io/ublue-os/startingpoint:latest
+  rpm-ostree rebase ostree-image-signed:docker://ghcr.io/gurbiggg/silverblue-main:latest
   ```
 - Reboot again to complete the installation
   ```
