@@ -1,5 +1,8 @@
 # GurbigggOS Version 1.1
 
+### THIS VERSION IS NOW DEPRECATED AND ARCHIVED DUE TO THE RELEASE OF BLUEBUILD, YOU CAN FIND THE NEW VERSION [HERE](https://github.com/Gurbiggg/GurbigggOS-V2). IF YOU ARE STILL USING THESE IMAGES PLEASE REBASE TO THE NEW VERSIONS THERE
+
+
 This was rewritten on the new release of universal-blue Startingpoint 1.0 as an update to my old images and a way to refresh the project, as of now I'm not actively maintaining the project and I don't forsee myself coming back to it for the time being. I'm leaving the instructional stuff from Startingpoint here just for reference, feel free to go check out their projects as they're very interesting and the work they're doing is incredible. 
 
 # Starting point
